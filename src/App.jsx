@@ -476,9 +476,10 @@ const Footer = () => {
           <div className="font-mono text-xs text-background/40 mb-6 uppercase tracking-wider">Navigation</div>
           <ul className="space-y-3 font-sans text-background/80">
             <li><a href="/#" className="hover:text-accent transition-colors block">Home</a></li>
-            <li><a href="/#features" className="hover:text-accent transition-colors block">Capabilities</a></li>
+            <li><a href="/#features" className="hover:text-accent transition-colors block">Services</a></li>
             <li><a href="/#philosophy" className="hover:text-accent transition-colors block">Philosophy</a></li>
-            <li><a href="/#protocol" className="hover:text-accent transition-colors block">Architecture</a></li>
+            <li><a href="/#protocol" className="hover:text-accent transition-colors block">Development</a></li>
+            <li><a href="/#team" className="hover:text-accent transition-colors block">Team</a></li>
           </ul>
         </div>
 
