@@ -229,7 +229,7 @@ const CursorProtocolScheduler = () => {
           ))}
         </div>
         <div className="mt-4 flex justify-end">
-          <div className="btn-save bg-primary text-accent text-[10px] font-mono px-3 py-1.5 rounded-md uppercase tracking-wider">Deploy</div>
+          <div className="btn-save bg-primary text-accent text-[10px] font-mono px-3 py-1.5 rounded-md uppercase tracking-wider">Submit</div>
         </div>
 
         {/* Cursor SVG */}
@@ -238,6 +238,55 @@ const CursorProtocolScheduler = () => {
             <path d="M4 4L11.0858 21.7143C11.3789 22.4471 12.4471 22.4471 12.7401 21.7143L15.3408 15.2127C15.4262 14.9993 15.5993 14.8262 15.8127 14.7408L22.3143 12.1396C23.0471 11.8465 23.0471 10.7783 22.3143 10.4853L4.6 3.4C3.89932 3.11973 3.11973 3.89932 3.4 4.6Z" fill="#C9A84C" stroke="#0D0D12" strokeWidth="1.5" strokeLinejoin="round" />
           </svg>
         </div>
+      </div>
+    </div>
+  );
+};
+
+// Card 4: DevSecOps
+const DevSecOpsPipeline = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ repeat: -1 });
+
+      tl.set('.line-1, .line-2, .line-3', { scaleX: 0, transformOrigin: 'left' })
+        .to('.node-1', { backgroundColor: '#C9A84C', color: '#0D0D12', duration: 1.0 })
+        .to('.line-1', { scaleX: 1, duration: 1.2, ease: 'power1.inOut' })
+        .to('.node-1', { backgroundColor: '#0D0D12', color: '#FAF8F5', duration: 0.6 }, '-=0.6')
+        .to('.node-2', { backgroundColor: '#C9A84C', color: '#0D0D12', duration: 1.0 }, '-=0.6')
+        .to('.line-2', { scaleX: 1, duration: 1.2, ease: 'power1.inOut' })
+        .to('.node-2', { backgroundColor: '#0D0D12', color: '#FAF8F5', duration: 0.6 }, '-=0.6')
+        .to('.node-3', { backgroundColor: '#C9A84C', color: '#0D0D12', duration: 1.0 }, '-=0.6')
+        .to('.line-3', { scaleX: 1, duration: 1.2, ease: 'power1.inOut' })
+        .to('.node-3', { backgroundColor: '#0D0D12', color: '#FAF8F5', duration: 0.6 }, '-=0.6')
+        .to('.node-4', { backgroundColor: '#C9A84C', color: '#0D0D12', duration: 1.0 }, '-=0.6')
+        .to('.node-4', { backgroundColor: '#0D0D12', color: '#FAF8F5', duration: 0.6 })
+        .set('.line-1, .line-2, .line-3', { scaleX: 0 }); // reset
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="bg-primary border border-background/20 rounded-[2rem] p-8 shadow-sm h-full flex flex-col min-h-[350px]">
+      <div className="font-heading font-bold text-2xl mb-2 text-background">DevSecOps</div>
+      <p className="font-sans text-background/70 text-sm mb-6">From Public Clouds to OnPremise, deliverying velocity with shift-left security built-in.</p>
+
+      <div className="mt-auto relative w-full pt-8 pb-4 flex items-center justify-between">
+        {/* Base connecting line */}
+        <div className="absolute left-[12%] right-[12%] top-1/2 -translate-y-1/2 h-[1px] bg-background/20 z-0"></div>
+
+        {/* Animated connecting lines */}
+        <div className="line-1 absolute left-[12%] right-[66%] top-1/2 -translate-y-1/2 h-[1px] bg-accent z-0"></div>
+        <div className="line-2 absolute left-[40%] right-[38%] top-1/2 -translate-y-1/2 h-[1px] bg-accent z-0"></div>
+        <div className="line-3 absolute left-[68%] right-[12%] top-1/2 -translate-y-1/2 h-[1px] bg-accent z-0"></div>
+
+        {['CODE', 'BUILD', 'SCAN', 'PROD'].map((label, i) => (
+          <div key={label} className={`node-${i + 1} relative z-10 w-[22%] aspect-[2/1] rounded border border-background/20 bg-primary flex items-center justify-center font-mono text-[8px] sm:text-[10px] md:text-[8px] lg:text-[10px] text-background transition-colors`}>
+            {label}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -278,8 +327,8 @@ const Philosophy = () => {
         <p className="phil-line font-mono text-background/60 text-lg md:text-xl mb-6 tracking-widest uppercase">
           Most engineering focuses on: minimum viable products.
         </p>
-        <h2 className="phil-line font-drama italic text-5xl md:text-7xl lg:text-8xl text-background leading-tight">
-          We focus on: <span className="text-accent inline-block">Absolute Precision.</span>
+        <h2 className="phil-line font-drama italic text-5xl md:text-7xl lg:text-7xl text-background leading-tight">
+          We focus on: <span className="text-accent inline-block">Robust and secure systems.</span>
         </h2>
       </div>
     </section>
@@ -315,7 +364,7 @@ const Protocol = () => {
   const steps = [
     { num: '01', title: 'Architectural Blueprint', desc: 'From understanding client needs and the environment to designing the perfect system architecture.', icon: Box },
     { num: '02', title: 'Implemenation', desc: 'Building modular, scalable systems. Code as an instrument, reliable and highly performant.', icon: Code2 },
-    { num: '03', title: 'System Validation', desc: 'Rigorous stress-testing across all vectors. DevSecOps principles applied. Automated coverage and manual review ensuring production readiness.', icon: ShieldCheck }
+    { num: '03', title: 'System Validation', desc: 'Rigorous stress-testing across all vectors. DevSecOps principles applied. Automated coverage, vulnerability scanning and manual review ensuring production readiness.', icon: ShieldCheck }
   ];
 
   return (
@@ -364,7 +413,7 @@ const Team = () => {
     <section id="team" className="py-32 px-4 md:px-8 bg-background relative z-10 border-t border-primary/10">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">The Experts</div>
+          <div className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">Meet the Experts</div>
           <h2 className="font-heading font-medium text-4xl md:text-5xl text-dark tracking-tight">Team</h2>
         </div>
 
@@ -454,10 +503,11 @@ export default function App() {
       <Navbar />
       <Hero />
 
-      <section id="features" className="py-24 px-4 md:px-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+      <section id="features" className="py-24 px-4 md:px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
         <DiagnosticShuffler />
         <TelemetryTypewriter />
         <CursorProtocolScheduler />
+        <DevSecOpsPipeline />
       </section>
 
       <Philosophy />
