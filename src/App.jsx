@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { ArrowRight, Box, Code2, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Box, Code2, ShieldCheck, Linkedin } from 'lucide-react';
 import imgCTO from './assets/team/CTO.jpg';
 import imgLead from './assets/team/Lead_Engineer.jpg';
 import imgMarketing from './assets/team/Marketing.jpeg';
@@ -10,7 +10,7 @@ import imgMarketing from './assets/team/Marketing.jpeg';
 gsap.registerPlugin(ScrollTrigger);
 
 // Magnetic Button Wrapper
-const MagneticButton = ({ children, className, onClick, href }) => {
+const MagneticButton = ({ children, className, onClick, href, ...props }) => {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ const MagneticButton = ({ children, className, onClick, href }) => {
       href={href}
       onClick={onClick}
       className={`relative overflow-hidden group inline-flex ${className}`}
+      {...props}
     >
       <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
@@ -461,9 +462,12 @@ const Footer = () => {
             <br />
             resilient · secure · true
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex items-center gap-4">
             <MagneticButton href="mailto:projects@itodu.dev" className="bg-accent text-primary px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-primary transition-colors">
               Get in touch
+            </MagneticButton>
+            <MagneticButton href="https://www.linkedin.com/in/tobias-dussmann-ba3a20398/" className="bg-background/10 text-background p-3 rounded-full hover:bg-accent hover:text-primary transition-colors border border-background/20" target="_blank" rel="noopener noreferrer">
+              <Linkedin size={20} />
             </MagneticButton>
           </div>
         </div>
