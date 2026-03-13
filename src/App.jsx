@@ -26,7 +26,7 @@ const MagneticButton = ({ children, className, onClick, href }) => {
   }, []);
 
   const Component = href ? 'a' : 'button';
-  
+
   return (
     <Component
       ref={buttonRef}
@@ -57,9 +57,9 @@ const Navbar = () => {
           IToDu<span className="text-accent">.</span>
         </div>
         <div className={`hidden md:flex items-center gap-6 font-sans text-sm ${scrolled ? 'text-dark/70' : 'text-background/70'}`}>
-          <a href="#features" className="hover:-translate-y-[1px] transition-transform">Capabilities</a>
+          <a href="#features" className="hover:-translate-y-[1px] transition-transform">Services</a>
           <a href="#philosophy" className="hover:-translate-y-[1px] transition-transform">Philosophy</a>
-          <a href="#protocol" className="hover:-translate-y-[1px] transition-transform">Protocol</a>
+          <a href="#protocol" className="hover:-translate-y-[1px] transition-transform">Development</a>
         </div>
         <MagneticButton href="mailto:projects@itodu.dev" className="bg-accent text-primary px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-accent/90">
           Contact
@@ -86,25 +86,26 @@ const Hero = () => {
   return (
     <section ref={containerRef} className="relative h-[100dvh] w-full flex flex-col justify-end pb-24 px-8 md:px-16 lg:px-24">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb" 
-          alt="Black flat screen computer monitor" 
+        <img
+          src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"
+          alt="Black flat screen computer monitor"
           className="w-full h-full object-cover grayscale opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/90 to-black/20"></div>
       </div>
-      
+
       <div className="relative z-10 max-w-4xl w-full">
         <h1 className="flex flex-col gap-2">
           <span className="hero-text font-heading font-medium text-4xl md:text-5xl text-background uppercase tracking-tight">Vision meets</span>
           <span className="hero-text font-drama italic text-7xl md:text-9xl text-accent leading-[0.9]">Execution.</span>
         </h1>
         <p className="hero-text mt-8 font-mono text-background/70 max-w-xl text-lg md:text-xl">
-          Concept & Design · Implementation · Testing. Building structural software foundations.
+          Building structural software foundations.
+          resilient · secure · true.
         </p>
         <div className="hero-text mt-10">
           <MagneticButton href="mailto:projects@itodu.dev" className="bg-accent text-primary px-8 py-4 text-lg rounded-full font-sans font-medium flex-inline">
-            Initiate Project <ArrowRight className="w-5 h-5 ml-2" />
+            Get in touch <ArrowRight className="w-5 h-5 ml-2" />
           </MagneticButton>
         </div>
       </div>
@@ -114,8 +115,8 @@ const Hero = () => {
 
 // Card 1: Shuffler
 const DiagnosticShuffler = () => {
-  const [cards, setCards] = useState(['Architecture', 'UX Research', 'Prototyping']);
-  
+  const [cards, setCards] = useState(['Requirements', 'Architecture', 'Prototyping']);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCards(prev => {
@@ -132,10 +133,10 @@ const DiagnosticShuffler = () => {
     <div className="bg-background border border-primary/10 rounded-[2rem] p-8 shadow-sm h-full flex flex-col min-h-[350px]">
       <div className="font-heading font-bold text-2xl mb-2 text-primary">Concept & Design</div>
       <p className="font-sans text-dark/70 text-sm mb-6">Rigorous planning and structural integrity before a single line of code is written.</p>
-      
+
       <div className="relative mt-auto h-32 w-full flex items-center justify-center">
         {cards.map((card, i) => (
-          <div 
+          <div
             key={card}
             className="absolute w-full max-w-[220px] bg-white border border-primary/10 rounded-xl p-4 text-center font-mono text-sm font-medium shadow-sm transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] tabular-nums"
             style={{
@@ -155,8 +156,8 @@ const DiagnosticShuffler = () => {
 // Card 2: Typewriter
 const TelemetryTypewriter = () => {
   const [text, setText] = useState('');
-  const fullText = "> init --stack react_node\n> building core microservices...\n> establishing db connections...\n> optimizing bundle sizes...\n> deploying to edge...\n> system online.";
-  
+  const fullText = "> init --stack your_project\n> building core microservices...\n> establishing db connections...\n> applying infra...\n> deploying to cloud...\n> system health online.";
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -174,13 +175,10 @@ const TelemetryTypewriter = () => {
     <div className="bg-primary border border-background/20 rounded-[2rem] p-8 shadow-sm h-full flex flex-col min-h-[350px]">
       <div className="flex justify-between items-start mb-2">
         <div className="font-heading font-bold text-2xl text-background">Implementation</div>
-        <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-accent">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          LIVE FEED
-        </div>
+
       </div>
       <p className="font-sans text-background/70 text-sm mb-6">Translating precise blueprints into high-performance, resilient applications.</p>
-      
+
       <div className="mt-auto bg-[#0a0a0e] p-4 rounded-xl font-mono text-xs leading-[1.6] overflow-hidden h-40 border border-background/10 whitespace-pre-wrap text-accent/80">
         {text}
         <span className="inline-block w-2 h-4 bg-accent ml-1 -mb-1 animate-pulse"></span>
@@ -214,13 +212,13 @@ const CursorProtocolScheduler = () => {
     <div ref={containerRef} className="bg-background border border-primary/10 rounded-[2rem] p-8 shadow-sm h-full flex flex-col min-h-[350px] relative overflow-hidden">
       <div className="font-heading font-bold text-2xl mb-2 text-primary">Testing</div>
       <p className="font-sans text-dark/70 text-sm mb-6">Automated and manual validation ensuring zero-defect deliverables.</p>
-      
+
       <div className="mt-auto relative w-full pt-4 max-w-xs mx-auto">
         <div className="grid grid-cols-7 gap-1 mb-2 text-center font-mono text-[10px] text-dark/50">
-          {['S','M','T','W','T','F','S'].map((d, i) => <div key={i}>{d}</div>)}
+          {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d, i) => <div key={i}>{d}</div>)}
         </div>
         <div className="grid grid-cols-7 gap-1">
-          {Array.from({length: 14}).map((_, i) => (
+          {Array.from({ length: 14 }).map((_, i) => (
             <div key={i} className={`aspect-square rounded-md border border-primary/10 flex items-center justify-center font-mono text-[10px] ${i === 10 ? 'cell-highlight' : ''}`}>
               {i + 1}
             </div>
@@ -229,11 +227,11 @@ const CursorProtocolScheduler = () => {
         <div className="mt-4 flex justify-end">
           <div className="btn-save bg-primary text-accent text-[10px] font-mono px-3 py-1.5 rounded-md uppercase tracking-wider">Deploy</div>
         </div>
-        
+
         {/* Cursor SVG */}
         <div className="cursor-svg absolute top-0 left-0 w-6 h-6 z-10 pointer-events-none" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))' }}>
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 4L11.0858 21.7143C11.3789 22.4471 12.4471 22.4471 12.7401 21.7143L15.3408 15.2127C15.4262 14.9993 15.5993 14.8262 15.8127 14.7408L22.3143 12.1396C23.0471 11.8465 23.0471 10.7783 22.3143 10.4853L4.6 3.4C3.89932 3.11973 3.11973 3.89932 3.4 4.6Z" fill="#C9A84C" stroke="#0D0D12" strokeWidth="1.5" strokeLinejoin="round"/>
+            <path d="M4 4L11.0858 21.7143C11.3789 22.4471 12.4471 22.4471 12.7401 21.7143L15.3408 15.2127C15.4262 14.9993 15.5993 14.8262 15.8127 14.7408L22.3143 12.1396C23.0471 11.8465 23.0471 10.7783 22.3143 10.4853L4.6 3.4C3.89932 3.11973 3.11973 3.89932 3.4 4.6Z" fill="#C9A84C" stroke="#0D0D12" strokeWidth="1.5" strokeLinejoin="round" />
           </svg>
         </div>
       </div>
@@ -265,9 +263,9 @@ const Philosophy = () => {
   return (
     <section ref={containerRef} id="philosophy" className="relative py-32 px-8 md:px-16 lg:px-24 bg-dark overflow-hidden min-h-[70vh] flex items-center">
       <div className="absolute inset-0 opacity-20">
-        <img 
-          src="https://images.unsplash.com/photo-1594913219757-9dbfecc87bdf?q=80&w=2000&auto=format&fit=crop" 
-          alt="Dark Marble Texture" 
+        <img
+          src="https://images.unsplash.com/photo-1594913219757-9dbfecc87bdf?q=80&w=2000&auto=format&fit=crop"
+          alt="Dark Marble Texture"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-dark/60"></div>
@@ -293,7 +291,7 @@ const Protocol = () => {
     const ctx = gsap.context(() => {
       cardsRef.current.forEach((card, i) => {
         if (i === 0) return; // Skip first card
-        
+
         gsap.to(cardsRef.current[i - 1], {
           scrollTrigger: {
             trigger: card,
@@ -311,28 +309,28 @@ const Protocol = () => {
   }, []);
 
   const steps = [
-    { num: '01', title: 'Architectural Blueprint', desc: 'Mapping systems and defining data flows with bespoke luxury precision. Avoiding generic scaffolding for tailor-made structures.', icon: Box },
-    { num: '02', title: 'Component Fabrication', desc: 'Building modular, scalable UI and backend systems. Code as an instrument, polished and highly performant.', icon: Code2 },
-    { num: '03', title: 'System Validation', desc: 'Rigorous stress-testing across all vectors. Automated coverage and manual review ensuring production readiness.', icon: ShieldCheck }
+    { num: '01', title: 'Architectural Blueprint', desc: 'From understanding client needs and the environment to designing the perfect system architecture.', icon: Box },
+    { num: '02', title: 'Implemenation', desc: 'Building modular, scalable systems. Code as an instrument, reliable and highly performant.', icon: Code2 },
+    { num: '03', title: 'System Validation', desc: 'Rigorous stress-testing across all vectors. DevSecOps principles applied. Automated coverage and manual review ensuring production readiness.', icon: ShieldCheck }
   ];
 
   return (
     <section ref={containerRef} id="protocol" className="bg-primary pt-32 pb-48 px-4 md:px-8">
       <div className="max-w-4xl mx-auto">
-        <div className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">Process Protocol</div>
-        <h2 className="font-heading font-medium text-5xl md:text-7xl mb-16 text-background tracking-tight">The Architecture.</h2>
-        
+        <div className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">Development Flow</div>
+        <h2 className="font-heading font-medium text-5xl md:text-7xl mb-16 text-background tracking-tight">Step by step to perfection.</h2>
+
         <div className="relative">
           {steps.map((step, i) => {
             const IconComponent = step.icon;
             return (
-              <div 
+              <div
                 key={step.num}
                 ref={el => cardsRef.current[i] = el}
                 className="sticky top-24 w-full min-h-[50vh] bg-dark border border-background/10 rounded-[3rem] p-8 md:p-12 flex flex-col justify-between mb-8 shadow-2xl overflow-hidden origin-top"
               >
                 <div className="font-mono text-6xl md:text-8xl text-background/10 font-bold mb-8">{step.num}</div>
-                
+
                 <div className="absolute -right-16 -top-16 md:-right-8 md:-top-8 opacity-5 pointer-events-none">
                   {IconComponent && <IconComponent className="w-96 h-96 text-background" strokeWidth={1} />}
                 </div>
@@ -360,15 +358,17 @@ const Footer = () => {
             IToDu<span className="text-accent">.</span>
           </div>
           <p className="font-mono text-background/60 max-w-sm text-sm leading-relaxed">
-            Concept & Design · Implementation · Testing. Building structural software foundations.
+            IoT to Cloud Solutions
+            <br />
+            resilient · secure · true
           </p>
           <div className="mt-8">
             <MagneticButton href="mailto:projects@itodu.dev" className="bg-accent text-primary px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-primary transition-colors">
-              Start a Project
+              Get in touch
             </MagneticButton>
           </div>
         </div>
-        
+
         <div>
           <div className="font-mono text-xs text-background/40 mb-6 uppercase tracking-wider">Navigation</div>
           <ul className="space-y-3 font-sans text-background/80">
@@ -378,21 +378,21 @@ const Footer = () => {
             <li><a href="#protocol" className="hover:text-accent transition-colors block">Architecture</a></li>
           </ul>
         </div>
-        
+
         <div>
           <div className="font-mono text-xs text-background/40 mb-6 uppercase tracking-wider">Legal</div>
           <ul className="space-y-3 font-sans text-background/80">
-            <li><a href="#" className="hover:text-accent transition-colors block">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-accent transition-colors block">Terms of Service</a></li>
+            {/* <li><a href="#" className="hover:text-accent transition-colors block">Privacy Policy</a></li>
+            <li><a href="#" className="hover:text-accent transition-colors block">Terms of Service</a></li> */}
             <li><a href="#" className="hover:text-accent transition-colors block">Imprint</a></li>
           </ul>
         </div>
       </div>
-      
+
       <div className="max-w-6xl mx-auto pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3 bg-background/5 rounded-full px-4 py-2 border border-background/10">
           <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-          <span className="font-mono text-xs text-background/70 tracking-widest">SYSTEM OPERATIONAL</span>
+          <span className="font-mono text-xs text-background/70 tracking-widest">FOR HIRE</span>
         </div>
         <div className="font-mono text-xs text-background/40 tracking-widest uppercase">
           © {new Date().getFullYear()} IToDu. All rights reserved.
@@ -408,13 +408,13 @@ export default function App() {
     <div className="bg-background min-h-screen font-sans selection:bg-accent selection:text-primary relative overflow-x-hidden">
       <Navbar />
       <Hero />
-      
+
       <section id="features" className="py-24 px-4 md:px-8 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
         <DiagnosticShuffler />
         <TelemetryTypewriter />
         <CursorProtocolScheduler />
       </section>
-      
+
       <Philosophy />
       <Protocol />
       <Footer />
