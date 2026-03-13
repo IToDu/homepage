@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Box, Code2, ShieldCheck } from 'lucide-react';
+import imgCTO from './assets/team/CTO.jpg';
+import imgLead from './assets/team/Lead_Engineer.jpg';
+import imgMarketing from './assets/team/Marketing.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +63,7 @@ const Navbar = () => {
           <a href="#features" className="hover:-translate-y-[1px] transition-transform">Services</a>
           <a href="#philosophy" className="hover:-translate-y-[1px] transition-transform">Philosophy</a>
           <a href="#protocol" className="hover:-translate-y-[1px] transition-transform">Development</a>
+          <a href="#team" className="hover:-translate-y-[1px] transition-transform">Team</a>
         </div>
         <MagneticButton href="mailto:projects@itodu.dev" className="bg-accent text-primary px-5 py-2 rounded-full text-sm font-sans font-medium hover:bg-accent/90">
           Contact
@@ -348,6 +352,47 @@ const Protocol = () => {
   );
 };
 
+// Team
+const Team = () => {
+  const teamMembers = [
+    { name: 'Tobias Dußmann', role: 'CTO', img: imgCTO },
+    { name: 'Tobias Dußmann', role: 'Lead Engineer', img: imgLead },
+    { name: 'Tobias Dußmann', role: 'Marketing', img: imgMarketing },
+  ];
+
+  return (
+    <section id="team" className="py-32 px-4 md:px-8 bg-background relative z-10 border-t border-primary/10">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">The Experts</div>
+          <h2 className="font-heading font-medium text-4xl md:text-5xl text-dark tracking-tight">Team</h2>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32">
+          {teamMembers.map((member, i) => (
+            <div key={i} className="flex flex-col items-center group cursor-default">
+              <div className="relative mb-6 group-hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+                {/* Blurry border effect */}
+                <div className="absolute inset-[-4px] rounded-[50%] bg-primary/20 blur-md group-hover:bg-accent/40 transition-colors duration-500"></div>
+
+                <div className="relative w-48 h-64 md:w-56 md:h-72 rounded-[50%] overflow-hidden bg-transparent shadow-lg group-hover:shadow-[0_0_30px_rgba(201,168,76,0.3)] transition-all duration-500">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover blur-sm group-hover:blur-0 transition-all duration-500"
+                  />
+                </div>
+              </div>
+              <h3 className="font-heading font-bold text-xl text-dark mb-1 group-hover:text-accent transition-colors duration-300">{member.name}</h3>
+              <p className="font-mono text-xs text-dark/50 tracking-widest uppercase">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Footer
 const Footer = () => {
   return (
@@ -417,6 +462,7 @@ export default function App() {
 
       <Philosophy />
       <Protocol />
+      <Team />
       <Footer />
     </div>
   );
